@@ -5,7 +5,7 @@ public class TicTacToe {
 	public static char[] board = new char[10];//array of size 10
 	private char[][] showboard = new char[3][3];
 	char CompChoice,PlayerChoice;
-	int i,j;
+	int i,j,move=0;
 	public void createBoard() //Initializing the board
 	{
 		for(int i=1;i<board.length;i++)
@@ -31,6 +31,7 @@ public class TicTacToe {
 		}
 		sc.close();
 		
+		
 	}
 	
 	
@@ -50,6 +51,22 @@ public class TicTacToe {
 		
 	}
 	
+	public void DesiredLocation()//User to make a move to Desired Location
+	{
+		System.out.println("Select the location to move:");
+		Scanner sc=new Scanner(System.in);
+		move=sc.nextInt();
+		if(move>0 && move<(board.length))
+		{
+			System.out.println("Desired Location is present:"+move);
+		}
+		else
+		{
+			System.out.println("Range to make a move from 1 to"+(board.length-1));
+		}
+		sc.close();
+	}
+	
 		
 	
 	public static void main(String[] args) {
@@ -58,6 +75,7 @@ public class TicTacToe {
 		game.createBoard();
 		game.chooseLetter();
 		game.showBoard();
+		game.DesiredLocation();
 	
 		}
 		
