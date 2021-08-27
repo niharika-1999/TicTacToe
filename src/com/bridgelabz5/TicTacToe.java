@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class TicTacToe {
 	public static char[] board = new char[10];//array of size 10
 	private char[][] showboard = new char[3][3];
+	Scanner sc=new Scanner(System.in);
 	char CompChoice,PlayerChoice;
 	int i,j,move=0;
 	public void createBoard() //Initializing the board
@@ -16,7 +17,6 @@ public class TicTacToe {
 	public void chooseLetter()//Choosing letter x or o by player
 	{
 		System.out.println("Choose letter x or o");
-		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Player choice of letter:");
 		PlayerChoice=sc.next().charAt(0);
 		if(PlayerChoice=='x')
@@ -29,7 +29,6 @@ public class TicTacToe {
 			CompChoice='x';
 			System.out.println("Player Letter:"+PlayerChoice+" and Computer Letter:"+CompChoice);
 		}
-		sc.close();
 		
 		
 	}
@@ -54,17 +53,36 @@ public class TicTacToe {
 	public void DesiredLocation()//User to make a move to Desired Location
 	{
 		System.out.println("Select the location to move:");
-		Scanner sc=new Scanner(System.in);
 		move=sc.nextInt();
 		if(move>0 && move<(board.length))
 		{
 			System.out.println("Desired Location is present:"+move);
+			requiredLocation(move);
 		}
 		else
 		{
 			System.out.println("Range to make a move from 1 to"+(board.length-1));
 		}
-		sc.close();
+	}
+	
+	public void requiredLocation(int location)//Checking free Space to make desired move
+	{
+		if(board[location]!='x')
+		{
+			System.out.println("Free Space available to make a move");
+			board[move]=PlayerChoice;
+		}
+		else if(board[location]!='o')
+		{
+			System.out.println("Free Space available to make a move");
+			board[move]=PlayerChoice;
+		}
+			
+		else
+			System.out.println("Free Space not available to make a move");
+			
+			
+		
 	}
 	
 		
