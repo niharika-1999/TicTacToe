@@ -260,8 +260,7 @@ public class TicTacToe {
 		showBoard();
 		checkingWinner();
 		DesiredLocation();
-		
-		
+				
 	}
 	
 	 
