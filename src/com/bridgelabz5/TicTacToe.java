@@ -82,6 +82,7 @@ public class TicTacToe {
 			 
 		}
 		showBoard();
+		checkingWinner();
 		
 	}
 	
@@ -93,8 +94,11 @@ public class TicTacToe {
 		if(choice==toss_choice)
 		{
 			DesiredLocation();
-			checkingWinner();
 		
+		}
+		else
+		{
+			computerGame();
 		}
 	}
 	
@@ -175,6 +179,91 @@ public class TicTacToe {
 		
 	}
 	
+	public void computerGame()
+	{
+		turn="computer";
+		System.out.println("It is Computer chance to play");
+		if((board[1]==' ')&&(board[2]==board[3]&&board[2]==CompChoice)||(board[4]==board[7]&&board[4]==CompChoice)||(board[5]==board[9]&&board[5]==CompChoice))
+		{
+			board[1]=CompChoice;
+		}
+		else if((board[2]==' ')&&(board[1]==board[3]&&board[3]==CompChoice)||(board[5]==board[8]&&board[8]==CompChoice))
+		{
+			board[2]=CompChoice;
+		}
+		else if((board[3]==' ')&&(board[1]==board[2]&&board[2]==CompChoice)||(board[6]==board[9]&&board[9]==CompChoice)||(board[5]==board[7]&&board[7]==CompChoice))
+		{
+			board[3]=CompChoice;
+		}
+		else if((board[4]==' ')&&(board[1]==board[7]&&board[1]==CompChoice)||(board[5]==board[6]&&board[6]==CompChoice))
+		{
+			board[4]=CompChoice;
+		}
+		else if((board[5]==' ')&&(board[1]==board[9]&&board[1]==CompChoice)||(board[7]==board[3]&&board[7]==CompChoice)||(board[2]==board[8]&&board[2]==CompChoice))
+		{
+			board[5]=CompChoice;
+		}
+		else if((board[6]==' ')&&(board[9]==board[3]&&board[3]==CompChoice)||(board[5]==board[4]&&board[4]==CompChoice))
+		{
+			board[6]=CompChoice;
+		}
+		else if((board[7]==' ')&&(board[1]==board[4]&&board[4]==CompChoice)||(board[3]==board[5]&&board[3]==CompChoice)||(board[8]==board[9]&&board[8]==CompChoice))
+		{
+			board[7]=CompChoice;
+		}
+		else if((board[8]==' ')&&(board[9]==board[7]&&board[7]==CompChoice)||(board[2]==board[5]&&board[2]==CompChoice))
+		{
+			board[8]=CompChoice;
+		}
+		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==CompChoice)||(board[6]==board[3]&&board[3]==CompChoice)||(board[8]==board[7]&&board[7]==CompChoice))
+		{
+			board[9]=CompChoice;
+		}
+		//Blocking Condition
+		
+		else if((board[1]==' ')&&(board[2]==board[3]&&board[2]==PlayerChoice)||(board[4]==board[7]&&board[4]==PlayerChoice)||(board[5]==board[9]&&board[5]==PlayerChoice))
+		{
+			board[1]=CompChoice;
+		}
+		else if((board[2]==' ')&&(board[1]==board[3]&&board[3]==PlayerChoice)||(board[5]==board[8]&&board[8]==PlayerChoice))
+		{
+			board[2]=CompChoice;
+		}
+		else if((board[3]==' ')&&(board[1]==board[2]&&board[2]==PlayerChoice)||(board[6]==board[9]&&board[9]==PlayerChoice)||(board[5]==board[7]&&board[7]==PlayerChoice))
+		{
+			board[3]=CompChoice;
+		}
+		else if((board[4]==' ')&&(board[1]==board[7]&&board[1]==PlayerChoice)||(board[5]==board[6]&&board[6]==PlayerChoice))
+		{
+			board[4]=CompChoice;
+		}
+		else if((board[5]==' ')&&(board[1]==board[9]&&board[1]==PlayerChoice)||(board[7]==board[3]&&board[7]==PlayerChoice)||(board[2]==board[8]&&board[2]==PlayerChoice))
+		{
+			board[5]=CompChoice;
+		}
+		else if((board[6]==' ')&&(board[9]==board[3]&&board[3]==PlayerChoice)||(board[5]==board[4]&&board[4]==PlayerChoice))
+		{
+			board[6]=CompChoice;
+		}
+		else if((board[7]==' ')&&(board[1]==board[4]&&board[4]==PlayerChoice)||(board[3]==board[5]&&board[3]==PlayerChoice)||(board[8]==board[9]&&board[8]==PlayerChoice))
+		{
+			board[7]=CompChoice;
+		}
+		else if((board[8]==' ')&&(board[9]==board[7]&&board[7]==PlayerChoice)||(board[2]==board[5]&&board[2]==PlayerChoice))
+		{
+			board[8]=CompChoice;
+		}
+		else if((board[9]==' ')&&(board[1]==board[5]&&board[5]==PlayerChoice)||(board[6]==board[3]&&board[3]==PlayerChoice)||(board[8]==board[7]&&board[7]==PlayerChoice))
+		{
+			board[9]=CompChoice;
+		}
+		showBoard();
+		checkingWinner();
+		DesiredLocation();
+		
+		
+	}
+	
 	 
 	
 		
@@ -188,6 +277,7 @@ public class TicTacToe {
 		game.DesiredLocation();
 		game.toss();
 		game.checkingWinner();
+		game.computerGame();
 		}
 		
 		
