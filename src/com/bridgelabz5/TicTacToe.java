@@ -8,10 +8,10 @@ public class TicTacToe {
 	public static char[][] showboard = new char[3][3];
 	public static Scanner sc=new Scanner(System.in);
 	public static Random rand=new Random();
-    char CompChoice,PlayerChoice;
-    int i,j,move=0;
-    int location;
-    String turn;
+	char CompChoice,PlayerChoice;
+	int i,j;
+	int location;
+	String turn;
 	
 	
 	public void createBoard() //Initializing the board
@@ -93,8 +93,86 @@ public class TicTacToe {
 		if(choice==toss_choice)
 		{
 			DesiredLocation();
+			checkingWinner();
 		
 		}
+	}
+	
+	public void checkingWinner()
+	{
+		if(board[1]==board[2] && board[2]==board[3] &&(board[1]==PlayerChoice||board[1]==CompChoice))
+		{
+			if(board[1]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		if(board[1]==board[4] && board[4]==board[7] &&(board[1]==PlayerChoice||board[1]==CompChoice))
+		{
+			if(board[1]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		if(board[1]==board[5] && board[5]==board[9] &&(board[1]==PlayerChoice||board[1]==CompChoice))
+		{
+			if(board[1]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		if(board[2]==board[5] && board[5]==board[8] &&(board[2]==PlayerChoice||board[2]==CompChoice))
+		{
+			if(board[2]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		if(board[3]==board[6] && board[6]==board[9] &&(board[3]==PlayerChoice||board[3]==CompChoice))
+		{
+			if(board[3]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		if(board[3]==board[5] && board[5]==board[7] &&(board[3]==PlayerChoice||board[3]==CompChoice))
+		{
+			if(board[3]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		if(board[4]==board[5] && board[5]==board[6] &&(board[4]==PlayerChoice||board[4]==CompChoice))
+		{
+			if(board[4]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		if(board[7]==board[8] && board[8]==board[9] &&(board[7]==PlayerChoice||board[7]==CompChoice))
+		{
+			if(board[7]==PlayerChoice)
+				System.out.println("Player Won!!");
+			else
+				System.out.println("Computer Won!!");
+			System.exit(0);
+				
+		}
+		
 	}
 	
 	 
@@ -109,6 +187,7 @@ public class TicTacToe {
 		game.showBoard();
 		game.DesiredLocation();
 		game.toss();
+		game.checkingWinner();
 		}
 		
 		
