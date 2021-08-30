@@ -1,12 +1,18 @@
 package com.bridgelabz5;
 import java.util.Scanner;
+import java.util.Random;
 
 public class TicTacToe {
 	public static char[] board = new char[10];//array of size 10
-	private char[][] showboard = new char[3][3];
-	Scanner sc=new Scanner(System.in);
-	char CompChoice,PlayerChoice;
-	int i,j,move=0;
+	public static char[][] showboard = new char[3][3];
+	public static Scanner sc=new Scanner(System.in);
+	public static Random rand=new Random();
+    char CompChoice,PlayerChoice;
+    int i,j,move=0;
+    int location;
+    String turn;
+	
+	
 	public void createBoard() //Initializing the board
 	{
 		for(int i=1;i<board.length;i++)
@@ -14,7 +20,9 @@ public class TicTacToe {
 			board[i]=' ';
 		}
 	}
-	public void chooseLetter()//Choosing letter x or o by player
+	
+	
+    void chooseLetter()//Choosing letter x or o by player
 	{
 		System.out.println("Choose letter x or o");
 		System.out.println("Enter Player choice of letter:");
@@ -36,54 +44,59 @@ public class TicTacToe {
 	
 	public void showBoard()//showBoard to display current board
 	{
-		for(int i =0;i<3;i++) {
-			for(int j=0;j<3;j++) {
-				showboard[i][j]=' ';
-				
-			}
-		}
-		System.out.println(showboard[0][0]+"|"+showboard[0][1]+"|"+showboard[0][2]);
-		System.out.println("-----");
-		System.out.println(showboard[1][0]+"|"+showboard[1][1]+"|"+showboard[1][2]);
-		System.out.println("-----");
-		System.out.println(showboard[2][0]+"|"+showboard[2][1]+"|"+showboard[2][2]);
+		System.out.println(""+board[1]+"|"+board[2]+"|"+board[3]);
+		System.out.println("-+-+-");
+		System.out.println(""+board[4]+"|"+board[5]+"|"+board[6]);
+		System.out.println("-+-+-");
+		System.out.println(""+board[7]+"|"+board[8]+"|"+board[9]);
 		
 	}
 	
-	public void DesiredLocation()//User to make a move to Desired Location
+	
+    void DesiredLocation()//User to make a move to Desired Location
 	{
-		System.out.println("Select the location to move:");
-		move=sc.nextInt();
-		if(move>0 && move<(board.length))
+    	turn="player";
+    	System.out.println("Player chance to move:\nEnter index to move");
+		location=sc.nextInt();
+		if(location<1||location>9) {
+			System.out.println("Enter location between 1 to 9");
+			DesiredLocation();
+		}
+		requiredMove();
+	}
+
+	
+	
+	public void requiredMove()
+	{
+		if(board[location]==' ')
 		{
-			System.out.println("Desired Location is present:"+move);
-			requiredLocation(move);
+			board[location]=PlayerChoice;
 		}
 		else
 		{
-			System.out.println("Range to make a move from 1 to"+(board.length-1));
+			System.out.println("Enter different index current one is filled");
+			DesiredLocation();
+			requiredMove();
+			 
+		}
+		showBoard();
+		
+	}
+	
+	public void toss()
+	{
+		System.out.println("Enter choice \n0.Head\n1.Tail");
+		int choice=sc.nextInt();
+		int toss_choice=rand.nextInt(2);
+		if(choice==toss_choice)
+		{
+			DesiredLocation();
+		
 		}
 	}
 	
-	public void requiredLocation(int location)//Checking free Space to make desired move
-	{
-		if(board[location]!='x')
-		{
-			System.out.println("Free Space available to make a move");
-			board[move]=PlayerChoice;
-		}
-		else if(board[location]!='o')
-		{
-			System.out.println("Free Space available to make a move");
-			board[move]=PlayerChoice;
-		}
-			
-		else
-			System.out.println("Free Space not available to make a move");
-			
-			
-		
-	}
+	 
 	
 		
 	
@@ -94,7 +107,6 @@ public class TicTacToe {
 		game.chooseLetter();
 		game.showBoard();
 		game.DesiredLocation();
-	
 		}
 		
 		
