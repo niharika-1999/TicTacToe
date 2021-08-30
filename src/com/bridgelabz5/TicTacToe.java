@@ -102,14 +102,16 @@ public class TicTacToe {
 		}
 	}
 	
-	public void checkingWinner()
+	public void checkingWinner()//Checks who the winner is Player or Computer or determine whether its tie
 	{
 		if(board[1]==board[2] && board[2]==board[3] &&(board[1]==PlayerChoice||board[1]==CompChoice))
 		{
 			if(board[1]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[1]==CompChoice)
 				System.out.println("Computer Won!!");
+			else
+				System.out.println("Its a tie between Player and Computer");
 			System.exit(0);
 				
 		}
@@ -117,8 +119,10 @@ public class TicTacToe {
 		{
 			if(board[1]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[1]==CompChoice)
 				System.out.println("Computer Won!!");
+			else
+				System.out.println("Its a tie between Player and Computer");
 			System.exit(0);
 				
 		}
@@ -126,8 +130,10 @@ public class TicTacToe {
 		{
 			if(board[1]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[1]==CompChoice)
 				System.out.println("Computer Won!!");
+			else
+				System.out.println("Its a tie between Player and Computer");
 			System.exit(0);
 				
 		}
@@ -135,8 +141,10 @@ public class TicTacToe {
 		{
 			if(board[2]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[2]==CompChoice)
 				System.out.println("Computer Won!!");
+			else
+				System.out.println("Its a tie between Player and Computer");
 			System.exit(0);
 				
 		}
@@ -144,8 +152,10 @@ public class TicTacToe {
 		{
 			if(board[3]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[3]==CompChoice)
 				System.out.println("Computer Won!!");
+			else
+				System.out.println("Its a tie between Player and Computer");
 			System.exit(0);
 				
 		}
@@ -153,8 +163,10 @@ public class TicTacToe {
 		{
 			if(board[3]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[3]==CompChoice)
 				System.out.println("Computer Won!!");
+			else
+				System.out.println("Its a tie between Player and Computer");
 			System.exit(0);
 				
 		}
@@ -162,8 +174,10 @@ public class TicTacToe {
 		{
 			if(board[4]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[4]==CompChoice)
 				System.out.println("Computer Won!!");
+			else
+				System.out.println("Its a tie between Player and Computer");
 			System.exit(0);
 				
 		}
@@ -171,15 +185,16 @@ public class TicTacToe {
 		{
 			if(board[7]==PlayerChoice)
 				System.out.println("Player Won!!");
-			else
+			else if(board[7]==CompChoice)
 				System.out.println("Computer Won!!");
-			System.exit(0);
-				
+			else
+				System.out.println("Its a tie between Player and Computer");			
+			System.exit(0);	
 		}
 		
 	}
 	
-	public void computerGame()
+	public void computerGame()//Computer game to win and block the Opponent 
 	{
 		turn="computer";
 		System.out.println("It is Computer chance to play");
@@ -263,6 +278,20 @@ public class TicTacToe {
 				
 	}
 	
+	public void compPlay()//Occupying Available Corners
+	{
+		int corner[]= {1,3,7,9};
+		for(int i=0;i<4;i++)
+		{
+			if(board[corner[i]]==' ')
+			{
+				board[corner[i]]=CompChoice;
+				break;
+				
+			}
+		}
+		
+	}
 	 
 	
 		
@@ -277,6 +306,7 @@ public class TicTacToe {
 		game.toss();
 		game.checkingWinner();
 		game.computerGame();
+		game.compPlay();
 		}
 		
 		
