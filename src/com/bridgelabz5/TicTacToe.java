@@ -5,13 +5,12 @@ import java.util.Random;
 public class TicTacToe {
 	
 	public static char[] board = new char[10];//array of size 10
-	public static char[][] showboard = new char[3][3];
 	public static Scanner sc=new Scanner(System.in);
 	public static Random rand=new Random();
 	char CompChoice,PlayerChoice;
 	int i,j;
 	int location;
-	String turn;
+	public static String turn;
 	
 	
 	public void createBoard() //Initializing the board
@@ -281,22 +280,54 @@ public class TicTacToe {
 	public void compPlay()//Occupying Available Corners
 	{
 		int corner[]= {1,3,7,9};
+		int flag=0;
 		for(int i=0;i<4;i++)
 		{
 			if(board[corner[i]]==' ')
 			{
 				board[corner[i]]=CompChoice;
+				flag=1;
 				break;
 				
 			}
+		}
+		if(flag==0)
+		{
+			if(board[5]==' ') {
+				board[5]=CompChoice;
+			}
+			else
+				randSelect();
+		}
+		
+	}
+	
+	public void randSelect()//random locations to move
+	{
+		int comp_index=rand.nextInt(9)+1;
+		if(board[comp_index]==' ')
+			board[comp_index]=CompChoice;
+		else
+			randSelect();
+		
+	}
+	
+	public void playAgain()//Continue to play another game
+	{
+		System.out.println("Play another game?\n press 0 to play again\n press 1 to exit");
+		int choice=sc.nextInt();
+		if(choice==0)
+		{
+			showBoard();
+			chooseLetter();
+			toss();
 		}
 		
 	}
 	 
 	
-		
-	
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		System.out.println("Welcome to Tic Tac Toe");//Welcome message
 		TicTacToe game=new TicTacToe();
 		game.createBoard();
@@ -307,9 +338,10 @@ public class TicTacToe {
 		game.checkingWinner();
 		game.computerGame();
 		game.compPlay();
-		}
-		
-		
+		game.playAgain();
 	}
+		
+		
+ }
 
 
