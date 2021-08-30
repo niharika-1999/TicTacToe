@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class TicTacToe {
+	
 	public static char[] board = new char[10];//array of size 10
 	public static char[][] showboard = new char[3][3];
 	public static Scanner sc=new Scanner(System.in);
@@ -22,7 +23,7 @@ public class TicTacToe {
 	}
 	
 	
-    void chooseLetter()//Choosing letter x or o by player
+    public void chooseLetter()//Choosing letter x or o by player
 	{
 		System.out.println("Choose letter x or o");
 		System.out.println("Enter Player choice of letter:");
@@ -53,7 +54,7 @@ public class TicTacToe {
 	}
 	
 	
-    void DesiredLocation()//User to make a move to Desired Location
+    public void DesiredLocation()//User to make a move to Desired Location
 	{
     	turn="player";
     	System.out.println("Player chance to move:\nEnter index to move");
@@ -67,7 +68,7 @@ public class TicTacToe {
 
 	
 	
-	public void requiredMove()
+	public void requiredMove()//check for free space before making required move
 	{
 		if(board[location]==' ')
 		{
@@ -84,7 +85,7 @@ public class TicTacToe {
 		
 	}
 	
-	public void toss()
+	public void toss()//Toss to check who plays first
 	{
 		System.out.println("Enter choice \n0.Head\n1.Tail");
 		int choice=sc.nextInt();
@@ -107,6 +108,7 @@ public class TicTacToe {
 		game.chooseLetter();
 		game.showBoard();
 		game.DesiredLocation();
+		game.toss();
 		}
 		
 		
